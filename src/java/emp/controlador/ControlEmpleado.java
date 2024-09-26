@@ -38,7 +38,7 @@ public class ControlEmpleado extends HttpServlet {
             DaoDepartamento ob2 = new DaoDepartamento();
             RequestDispatcher res;
             Empleado emp;
-            int r=0;
+            int r;
             if(request.getParameter("mostrar")!=null){
                 try {
                     request.setAttribute("empleado", ob1.mostrar());
@@ -64,8 +64,6 @@ public class ControlEmpleado extends HttpServlet {
             }            
             if(request.getParameter("modificar")!=null){
                 try {
-//                    request.setAttribute("empleado", ob1.mostrar());
-//                    request.setAttribute("departamento", ob2.mostrar());
                       emp= new Empleado(Integer.parseInt(request.getParameter("idEmp")), request.getParameter("nombre"), new Departamento(Integer.parseInt(request.getParameter("idDepto"))));
                       r= ob1.modificar(emp);
                       if(r>0){
@@ -79,8 +77,6 @@ public class ControlEmpleado extends HttpServlet {
             }
             if(request.getParameter("eliminar")!=null){
                 try {
-//                    request.setAttribute("empleado", ob1.mostrar());
-//                    request.setAttribute("departamento", ob2.mostrar());
                       emp= new Empleado(Integer.parseInt(request.getParameter("idEmp")));
                       r= ob1.eliminar(emp);
                       if(r>0){
